@@ -1,0 +1,25 @@
+<h3> Book Details</h3>
+
+<%= form_with model: book do |form| %>
+  <%= form.text_field :name, placeholder: "name" %><br>
+  <%= form.text_field :book_no, placeholder: "form number" %><br>
+  <%= form.text_field :author_id, placeholder: "id" %><br>
+  <%= form.date_select :date %><br>
+
+  <%= form.check_box :book_one %>
+  <%= form.label :book_one, "book 1" %><br>
+  <%= form.check_box :book_two %>
+  <%= form.label :book_two, "book 2" %><br>
+  <%= form.time_zone_select :time_zone %>
+
+  <%= form.select :book, ["comic", "spiritual", "fned"] %>
+<%= form.select :book, Book.order(:name).map { |book| [book.name, book.book_no] } %>
+<%= form.collection_select :book, Book.order(:name), :id, :name %>
+ <%= form.file_field :image %>
+ <%= image_tag "images.png" %>
+
+  <%= form.submit %><br>
+<% end %>
+
+
+

@@ -1,0 +1,12 @@
+<%= render "form", book: @book %>
+
+
+<%= form_with url: "books/destroy" , method: :patch do |form| %>
+  <%= form.button "Delete", formmethod: :delete, data: { confirm: "Are you sure?" } %>
+  <%= form.button "Update" %>
+<% end %>
+<%= link_to "Destroy", book_path(@book), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+
+<%= button_to "Delete", book_path(@book), method: :delete %>
+
+

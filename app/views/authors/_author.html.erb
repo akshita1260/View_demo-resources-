@@ -1,0 +1,15 @@
+
+<h3> Author Details</h3>
+
+<%= nested_form_for @author do |a| %>
+  <%= a.text_field :name, placeholder: "name" %><br>
+  Books:-
+  <%= a.fields_for :books do |books_form| %><br>
+    <%= books_form.text_field :name %><br>
+    <%= books_form.text_field :book_no %><br>
+    <%= books_form.date_select :date %><br>
+    <% end %>
+  <%= a.submit %><br>
+
+
+<% end %>
