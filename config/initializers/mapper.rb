@@ -32,7 +32,6 @@ module ActionDispatch
               collection do
                 get  :index if parent_resource.actions.include?(:index)
                 get  :csv_export if parent_resource.actions.include?(:csv_export)
-                post :create if parent_resource.actions.include?(:create)
               end
 
               new do
